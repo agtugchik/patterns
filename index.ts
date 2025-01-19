@@ -1,6 +1,8 @@
 import Singleton from "./singleton";
 import AbstractFactory from "./abstract-factory";
 import { Factories } from "./abstract-factory/types";
+import Calculator from "./decorator/calculator";
+import consoleLogDecorator from "./decorator";
 
 //singleton test
 const firstInstnace = new Singleton();
@@ -20,3 +22,8 @@ const macFactory = new AbstractFactory(Factories.Mac);
 const macButton = JSON.stringify(macFactory.factory.createButton());
 const macCheckbox = JSON.stringify(macFactory.factory.createCheckbox());
 console.log("\nmac button:", macButton, "\nmac checkbox", macCheckbox);
+
+//decorator test
+const calc = new Calculator();
+consoleLogDecorator(calc, "add");
+calc.add(1, 2);
