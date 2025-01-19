@@ -3,12 +3,13 @@ import AbstractFactory from "./abstract-factory";
 import { Factories } from "./abstract-factory/types";
 import Calculator from "./decorator/calculator";
 import consoleLogDecorator from "./decorator";
+import "./observer";
 
 //singleton test
 const firstInstnace = new Singleton();
 const secondInstnace = new Singleton();
 console.log(
-  "singleton instances are the same:",
+  "\nsingleton instances are the same:",
   firstInstnace === secondInstnace
 );
 
