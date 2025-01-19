@@ -1,14 +1,12 @@
-import { GUIFactory, Factories, AbstractFactoryInterface } from "./types";
-import { WinFactory } from "./win-factory";
-import { MacFactory } from "./mac-factory";
+import AbstractFactory from "./abstract-factory";
+import { Factories } from "./types";
 
-class AbstractFactory implements AbstractFactoryInterface {
-  factory: GUIFactory;
-  constructor(os: keyof typeof Factories) {
-    if (os === Factories.Win) this.factory = new WinFactory();
-    else if (os === Factories.Mac) this.factory = new MacFactory();
-    else throw new Error("unknown os");
-  }
-}
+const winFactory = new AbstractFactory(Factories.Win);
+const winButton = JSON.stringify(winFactory.factory.createButton());
+const winCheckbox = JSON.stringify(winFactory.factory.createCheckbox());
+console.log("\nwin button:", winButton, "\nwin checkbox", winCheckbox);
 
-export default AbstractFactory;
+const macFactory = new AbstractFactory(Factories.Mac);
+const macButton = JSON.stringify(macFactory.factory.createButton());
+const macCheckbox = JSON.stringify(macFactory.factory.createCheckbox());
+console.log("\nmac button:", macButton, "\nmac checkbox", macCheckbox);

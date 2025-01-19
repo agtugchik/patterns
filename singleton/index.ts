@@ -1,15 +1,8 @@
-import { SingletonInterface } from "./types";
+import Singleton from "./singleton";
 
-class Singleton implements SingletonInterface {
-  private static instance: null | Singleton = null;
-  value: string;
-  constructor() {
-    if (!Singleton.instance) {
-      Singleton.instance = this;
-      this.value = "im singleton";
-    }
-    return Singleton.instance;
-  }
-}
-
-export default Singleton;
+const firstInstnace = new Singleton();
+const secondInstnace = new Singleton();
+console.log(
+  "\nsingleton instances are the same:",
+  firstInstnace === secondInstnace
+);

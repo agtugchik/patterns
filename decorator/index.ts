@@ -1,16 +1,6 @@
-import { Decorator } from "./types";
+import Calculator from "./calculator";
+import decorator from "./decorator";
 
-const consoleLogDecorator: Decorator<number> = (obj, method) => {
-  const oldMethod = obj[method];
-  obj[method] = (...args) => {
-    const result = oldMethod(...args);
-    console.log(
-      `\nmethod ${method} called with args (${args.join(
-        ", "
-      )}) result: ${result}`
-    );
-    return result;
-  };
-};
-
-export default consoleLogDecorator;
+const calc = new Calculator();
+decorator(calc, "add");
+calc.add(1, 2);
