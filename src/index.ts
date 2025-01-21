@@ -5,3 +5,4 @@ import "./observer";
 import "./builder";
 import "./proxy";
 import "./state";
+import "./prototype";
