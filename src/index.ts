@@ -6,3 +6,4 @@ import "./builder";
 import "./proxy";
 import "./state";
 import "./prototype";
+import "./adapter"
