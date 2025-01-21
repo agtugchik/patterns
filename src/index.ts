@@ -8,3 +8,4 @@ import "./state";
 import "./prototype";
 import "./adapter";
 import "./flyweight";
+import "./template-method";
